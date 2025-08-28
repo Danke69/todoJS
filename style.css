@@ -1,24 +1,37 @@
-function addTask() {
-  const input = document.getElementById("taskInput");
-  const taskText = input.value.trim();
-  if (taskText === "") return;
-
-  const li = document.createElement("li");
-  li.textContent = taskText;
-
-  // 完了ボタン
-  const doneBtn = document.createElement("button");
-  doneBtn.textContent = "完了";
-  doneBtn.onclick = () => li.style.textDecoration = "line-through";
-
-  // 削除ボタン
-  const delBtn = document.createElement("button");
-  delBtn.textContent = "削除";
-  delBtn.onclick = () => li.remove();
-
-  li.appendChild(doneBtn);
-  li.appendChild(delBtn);
-
-  document.getElementById("taskList").appendChild(li);
-  input.value = "";
+body {
+  font-family: sans-serif;
+  background: #f4f4f4;
+  text-align: center;
+  padding: 30px;
 }
+
+.todo-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+li {
+  text-align: left;
+  margin: 5px 0;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+li span {
+  margin-right: 10px;
+}
+
+button {
+  margin-left: 5px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.work { color: blue; }
+.private { color: green; }
+.other { color: orange; }
